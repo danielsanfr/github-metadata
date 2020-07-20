@@ -62,12 +62,13 @@ module Jekyll
 
       # Set the baseurl only if it is `nil` or `/`
       # Baseurls should never be "/". See http://bit.ly/2s1Srid
+      # However, if you are using a subdomain, no problem!
       def should_set_baseurl?
-        site.config["baseurl"].nil? || site.config["baseurl"] == "/"
+        false
       end
 
       def should_add_url_fallbacks?
-        Jekyll.env == "production" || Pages.page_build?
+        false
       end
 
       def should_warn_about_site_name?
